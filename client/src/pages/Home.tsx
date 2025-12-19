@@ -9,7 +9,7 @@ const products = [
     price: "¥38,980",
     description: "肌触りの良いグレージュファブリック。カバーリング仕様で、汚れても安心。ミニマルな空間に溶け込む、主張しすぎない存在感。",
     link: "https://urbangray.base.shop/items/128927720",
-    image: "/01.jpg",
+    image: "/03.jpg",
     tags: ["Best Seller", "Free Shipping"]
   },
   {
@@ -18,7 +18,7 @@ const products = [
     price: "¥7,980",
     description: "生活感を隠す、扉付きのミニマルデザイン。配線もすっきり収納。壁に馴染むカラーリングで、部屋を広く見せます。",
     link: "https://urbangray.base.shop/items/128927722",
-    image: "/01.jpg",
+    image: "/04.jpg",
     tags: ["New Arrival"]
   },
   {
@@ -36,7 +36,7 @@ const products = [
     price: "¥31,980",
     description: "家電も食器も美しく隠す。ストーングレーの収納。生活感が出がちなキッチンを、ショールームのような空間へ。",
     link: "https://urbangray.base.shop/items/128927724",
-    image: "/01.jpg",
+    image: "/02.jpg",
     tags: ["High Capacity"]
   }
 ];
