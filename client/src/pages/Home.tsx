@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Truck, ShieldCheck, Clock, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
+import Header from "@/components/Header";
 
 const products = [
   {
@@ -94,26 +95,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-stone-300 selection:text-stone-900 overflow-x-hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
-        <div className="container h-20 flex items-center justify-between px-6">
-          <h1 className="text-xl tracking-[0.2em] font-bold uppercase font-serif">UrbanGray</h1>
-          <nav className="hidden md:flex gap-8 text-sm tracking-widest uppercase text-stone-500">
-            <Link href="/about">
-              <a className="hover:text-stone-900 transition-colors cursor-pointer">About</a>
-            </Link>
-            <a href="#products" className="hover:text-stone-900 transition-colors">Products</a>
-            <a href="#features" className="hover:text-stone-900 transition-colors">Service</a>
-          </nav>
-          <a 
-            href="https://urbangray.base.shop/" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs bg-stone-900 text-white px-6 py-3 rounded-full hover:bg-stone-700 transition-all hover:scale-105 tracking-widest uppercase shadow-lg"
-          >
-            Visit Shop
-          </a>
-        </div>
-      </header>
+      <Header />
 
       <main>
         {/* Hero Section */}

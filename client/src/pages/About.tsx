@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowLeft, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import { Link } from "wouter";
+import Header from "@/components/Header";
 
 // Animation Variants
 const fadeInUp = {
@@ -37,20 +38,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-stone-300 selection:text-stone-900 overflow-x-hidden">
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200 transition-all duration-300">
-        <div className="container h-20 flex items-center justify-between px-6">
-          <Link href="/">
-            <a className="text-xl tracking-[0.2em] font-bold uppercase font-serif cursor-pointer hover:opacity-70 transition-opacity">
-              UrbanGray
-            </a>
-          </Link>
-          <Link href="/">
-             <a className="flex items-center gap-2 text-xs tracking-widest uppercase text-stone-500 hover:text-stone-900 transition-colors">
-               <ArrowLeft className="w-4 h-4" /> Back to Home
-             </a>
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main>
         {/* Hero Section */}
