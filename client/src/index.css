@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: #F5F5F5;
+  --foreground: #333333;
+  --primary: #333333;
+  --primary-foreground: #F5F5F5;
+  --card: #F5F5F5;
+  --card-foreground: #333333;
+  --popover: #F5F5F5;
+  --popover-foreground: #333333;
+  --secondary: #E5E5E5;
+  --secondary-foreground: #333333;
+  --muted: #8C8C8C;
+  --muted-foreground: #F5F5F5;
+  --accent: #D1D1D1;
+  --accent-foreground: #333333;
+  --destructive: #7F1D1D;
+  --destructive-foreground: #F5F5F5;
+  --border: #D1D1D1;
+  --input: #D1D1D1;
+  --ring: #333333;
+  --radius: 0px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1200px;
+    }
+  }
+}
