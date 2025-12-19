@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Truck, ShieldCheck, Clock, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Link } from "wouter";
 
 const products = [
   {
@@ -8,7 +9,7 @@ const products = [
     price: "¥38,980",
     description: "肌触りの良いグレージュファブリック。カバーリング仕様で、汚れても安心。ミニマルな空間に溶け込む、主張しすぎない存在感。",
     link: "https://urbangray.base.shop/items/128927720",
-    image: "/03.jpg",
+    image: "/01.jpg",
     tags: ["Best Seller", "Free Shipping"]
   },
   {
@@ -17,7 +18,7 @@ const products = [
     price: "¥7,980",
     description: "生活感を隠す、扉付きのミニマルデザイン。配線もすっきり収納。壁に馴染むカラーリングで、部屋を広く見せます。",
     link: "https://urbangray.base.shop/items/128927722",
-    image: "/04.jpg",
+    image: "/01.jpg",
     tags: ["New Arrival"]
   },
   {
@@ -35,7 +36,7 @@ const products = [
     price: "¥31,980",
     description: "家電も食器も美しく隠す。ストーングレーの収納。生活感が出がちなキッチンを、ショールームのような空間へ。",
     link: "https://urbangray.base.shop/items/128927724",
-    image: "/02.jpg",
+    image: "/01.jpg",
     tags: ["High Capacity"]
   }
 ];
@@ -97,7 +98,9 @@ export default function Home() {
         <div className="container h-20 flex items-center justify-between px-6">
           <h1 className="text-xl tracking-[0.2em] font-bold uppercase font-serif">UrbanGray</h1>
           <nav className="hidden md:flex gap-8 text-sm tracking-widest uppercase text-stone-500">
-            <a href="#concept" className="hover:text-stone-900 transition-colors">Concept</a>
+            <Link href="/about">
+              <a className="hover:text-stone-900 transition-colors cursor-pointer">About</a>
+            </Link>
             <a href="#products" className="hover:text-stone-900 transition-colors">Products</a>
             <a href="#features" className="hover:text-stone-900 transition-colors">Service</a>
           </nav>
@@ -402,10 +405,11 @@ export default function Home() {
           <div className="space-y-4">
             <h4 className="text-white uppercase tracking-widest text-xs">Menu</h4>
             <nav className="flex flex-col gap-2">
-              <a href="#concept" className="hover:text-white transition-colors">Concept</a>
+              <Link href="/about">
+                <a className="hover:text-white transition-colors cursor-pointer">About Us</a>
+              </Link>
               <a href="#products" className="hover:text-white transition-colors">Collection</a>
               <a href="#features" className="hover:text-white transition-colors">Features</a>
-              <a href="/about" className="hover:text-white transition-colors">About Us</a>
               <a href="https://urbangray.base.shop/law" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-[10px]">特定商取引法に基づく表記</a>
             </nav>
           </div>
