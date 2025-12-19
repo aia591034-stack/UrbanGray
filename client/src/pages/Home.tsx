@@ -405,7 +405,7 @@ export default function Home() {
               <a href="#concept" className="hover:text-white transition-colors">Concept</a>
               <a href="#products" className="hover:text-white transition-colors">Collection</a>
               <a href="#features" className="hover:text-white transition-colors">Features</a>
-              <a href="https://urbangray.base.shop/about" target="_blank" className="hover:text-white transition-colors">About Us</a>
+              <a href="/about" className="hover:text-white transition-colors">About Us</a>
               <a href="https://urbangray.base.shop/law" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors text-[10px]">特定商取引法に基づく表記</a>
             </nav>
           </div>
