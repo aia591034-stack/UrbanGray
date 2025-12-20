@@ -2,8 +2,9 @@ name: Daily Blog Post
 
 on:
   schedule:
+    # Runs at 00:00 UTC (09:00 JST) every day
     - cron: '0 0 * * *'
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual triggering
 
 permissions:
   contents: write
@@ -16,16 +17,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 修正: pnpm を先にインストールする
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
 
       - name: Install dependencies
         run: pnpm install
@@ -41,6 +43,7 @@ jobs:
           git config --global user.email "bot@urbangray.com"
           git add client/src/posts/
           
+          # Check if there are changes to commit
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
