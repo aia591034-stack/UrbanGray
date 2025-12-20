@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRoute, Link } from "wouter";
-import matter from "gray-matter";
+import { parseFrontmatter } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import Header from "@/components/Header";
 import { ArrowLeft } from "lucide-react";
@@ -28,7 +28,7 @@ export default function BlogPost() {
         }
 
         const rawContent = await modules[targetPath]() as string;
-        const { content, data } = matter(rawContent);
+        const { content, data } = parseFrontmatter(rawContent);
         
         setContent(content);
         setMeta(data);

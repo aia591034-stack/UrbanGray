@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import matter from "gray-matter";
+import { parseFrontmatter } from "@/lib/utils";
 import Header from "@/components/Header";
 import { motion } from "framer-motion";
 
@@ -24,16 +24,16 @@ export default function Blog() {
 
       for (const path in modules) {
         const rawContent = await modules[path]() as string;
-        const { data } = matter(rawContent);
+        const { data } = parseFrontmatter(rawContent);
         
         // Extract filename as slug (e.g., "../posts/2023-12-01-post.md" -> "2023-12-01-post")
         const slug = path.split("/").pop()?.replace(".md", "") || "";
 
         loadedPosts.push({
           slug,
-          title: data.title,
-          date: data.date,
-          description: data.description,
+          title: data.title || "Untitled",
+          date: data.date || "",
+          description: data.description || "",
           image: data.image || "/01.jpg",
         });
       }
