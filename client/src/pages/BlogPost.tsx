@@ -80,7 +80,14 @@ export default function BlogPost() {
         </div>
 
         {/* Article Content */}
-        <article className="container max-w-2xl mx-auto px-6 prose prose-stone prose-lg md:prose-xl prose-headings:font-serif prose-headings:font-normal prose-p:leading-loose prose-p:text-stone-600 prose-a:text-stone-900 prose-a:no-underline prose-a:border-b prose-a:border-stone-300 hover:prose-a:border-stone-900 prose-img:rounded-sm prose-img:shadow-md">
+        <article className="container max-w-2xl mx-auto px-6 prose prose-stone prose-lg md:prose-xl 
+          prose-headings:font-serif prose-headings:font-normal 
+          prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-20 prose-h2:mb-10 prose-h2:border-b prose-h2:border-stone-200 prose-h2:pb-4
+          prose-h3:text-xl prose-h3:mt-12 prose-h3:mb-6
+          prose-p:leading-[2.2] prose-p:text-stone-600 prose-p:mb-10 prose-p:font-light
+          prose-img:rounded-sm prose-img:shadow-2xl prose-img:my-16
+          prose-strong:text-stone-900 prose-strong:font-bold
+          selection:bg-stone-200">
           <ReactMarkdown>{content}</ReactMarkdown>
         </article>
 

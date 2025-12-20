@@ -49,11 +49,12 @@ async function generatePost() {
 
     Content requirements:
     - Write in a polite but cool, professional tone ("desu/masu" style but not too cutesy).
-    - Use H2 (##) and H3 (###) for structure.
-    - Include concrete advice or tips.
+    - Use H2 (##) for main sections and H3 (###) for subsections.
+    - IMPORTANT: Use double newlines between every paragraph to ensure plenty of white space.
+    - Keep sentences relatively short and clear.
+    - Focus on delivering high-value tips for 30s men.
     - Length: Approximately 1500-2000 Japanese characters.
-    - Do NOT wrap the output in markdown code blocks like 
-	. Just provide the raw text.
+    - Do NOT wrap the output in markdown code blocks like \`\`\`markdown. Just provide the raw text.
   `;
 
   try {
