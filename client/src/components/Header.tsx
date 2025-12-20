@@ -28,6 +28,9 @@ export default function Header() {
             <Link href="/about">
               <a className={`hover:text-stone-900 transition-colors ${location === '/about' ? 'text-stone-900 font-bold' : ''}`}>About</a>
             </Link>
+            <Link href="/blog">
+              <a className={`hover:text-stone-900 transition-colors ${location.startsWith('/blog') ? 'text-stone-900 font-bold' : ''}`}>Journal</a>
+            </Link>
             <a href="/#products" className="hover:text-stone-900 transition-colors">Collection</a>
             <a href="/#features" className="hover:text-stone-900 transition-colors">Service</a>
             <a 
@@ -67,6 +70,9 @@ export default function Header() {
               </Link>
               <Link href="/about">
                 <a className="border-b border-stone-200 pb-4">About Us</a>
+              </Link>
+              <Link href="/blog">
+                <a className="border-b border-stone-200 pb-4">Journal</a>
               </Link>
               <a href="/#products" className="border-b border-stone-200 pb-4" onClick={() => setIsOpen(false)}>
                 Collection
