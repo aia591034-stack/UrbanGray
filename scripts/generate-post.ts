@@ -28,33 +28,58 @@ function getRandomImage() {
   return AVAILABLE_IMAGES[Math.floor(Math.random() * AVAILABLE_IMAGES.length)];
 }
 
+// Function to get titles of existing posts to avoid duplication
+function getExistingTitles(): string[] {
+  const titles: string[] = [];
+  const files = fs.readdirSync(POSTS_DIR).filter(file => file.endsWith(".md"));
+
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(POSTS_DIR, file), "utf-8");
+    const match = content.match(/title:\s*"?(.+?)"?\n/);
+    if (match) {
+      titles.push(match[1].trim());
+    }
+  }
+  return titles;
+}
+
 async function generatePost() {
   console.log("Generating new blog post...");
 
+  // Get existing titles
+  const existingTitles = getExistingTitles();
+  console.log(`Found ${existingTitles.length} existing posts.`);
+
   const prompt = `
-    You are a professional interior design blogger for "Urban Gray".
+    You are a professional interior design blogger for "Urban Gray", a brand specializing in simple, modern, and grey-toned interiors.
     Target audience: Men in their 30s who like hotel-like, minimalist designs.
+
+    **Existing Article Titles (DO NOT DUPLICATE THESE TOPICS):**
+    ${existingTitles.map(t => `- ${t}`).join("\n")}
+
+    Task: 
+    1. Brainstorm a unique topic related to grey interior, minimalism, hotel-like living, productivity at home, or furniture care that is NOT in the list above.
+    2. Write a blog post in Japanese about that topic. 
     
-    Task: Write a blog post in Japanese about grey interior or minimalist living.
     Output in Markdown with Frontmatter.
     
-    Frontmatter:
+    Frontmatter requirements:
     - title: catchy title in Japanese
     - date: YYYY-MM-DD (Today is ${new Date().toISOString().split('T')[0]})
-    - description: short summary
+    - description: short summary (max 120 chars)
     - image: Placeholder (The script will assign a random image)
     - author: Urban Gray Editorial
 
-    Content:
+    Content requirements:
     - Professional, cool tone ("desu/masu").
     - Use H2 (##) for main sections and H3 (###) for subsections.
     - IMPORTANT: Use double newlines between every paragraph.
     - IMPORTANT: Use **bold text** for important keywords.
-    - IMPORTANT: Use bullet points (- ) or numbered lists (1. ) where appropriate to break up text.
+    - IMPORTANT: Use bullet points (- ) or numbered lists (1. ) where appropriate.
     - Keep paragraphs relatively short.
-    - Focus on delivering high-value tips for 30s men.
     - Length: Approximately 1500-2000 Japanese characters.
-    - Do NOT wrap the output in markdown code blocks like \`\`\`markdown. Just provide the raw text.
+    - Do NOT wrap the output in markdown code blocks like 
+    Just provide the raw text.
   `;
 
   try {
@@ -76,16 +101,17 @@ async function generatePost() {
     // Force random image to ensure variety
     const randomImage = getRandomImage();
     
-    // Replace or insert image field in frontmatter
-    if (text.match(/image:\s*"?.*"?\n/)) {
-      text = text.replace(/image:\s*"?.*"?\n/, `image: "${randomImage}"\n`);
+    // Replace or insert image field
+    if (text.match(/image:\s*"?.*"? \n/)) {
+      text = text.replace(/image:\s*"?.*"? \n/, `image: "${randomImage}"\n`);
     } else {
-      // Insert after description if image field is missing
       text = text.replace(/(description:.*\n)/, `$1image: "${randomImage}"\n`);
     }
 
     const date = dateMatch[1].trim();
-    const filename = `${date}-post-${Date.now()}.md`;
+    // Use timestamp to ensure unique filename
+    const safeTitle = `post-${Date.now()}`;
+    const filename = `${date}-${safeTitle}.md`;
     const filepath = path.join(POSTS_DIR, filename);
 
     fs.writeFileSync(filepath, text);
