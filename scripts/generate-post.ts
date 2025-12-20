@@ -46,11 +46,13 @@ async function generatePost() {
     - author: Urban Gray Editorial
 
     Content:
-    - Professional tone.
-    - H2/H3 for structure.
-    - Double newlines between paragraphs.
-    - 1500-2000 chars.
-    - No markdown code blocks.
+    - Professional, cool tone ("desu/masu").
+    - Use H2 (##) for main sections and H3 (###) for subsections.
+    - IMPORTANT: KEEP PARAGRAPHS SHORT (Max 3-4 sentences per paragraph).
+    - IMPORTANT: USE TWO EMPTY LINES between every paragraph to create a massive amount of vertical white space.
+    - Focus on delivering high-value tips for 30s men.
+    - Length: Approximately 1500-2000 Japanese characters.
+    - Do NOT wrap the output in markdown code blocks like \`\`\`markdown. Just provide the raw text.
   `;
 
   try {
