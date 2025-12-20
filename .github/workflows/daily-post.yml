@@ -2,8 +2,8 @@ name: Daily Blog Post
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 毎日 日本時間 朝9時 (UTC 0:00)
-  workflow_dispatch: # 手動実行ボタン用
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,7 +11,7 @@ permissions:
 jobs:
   generate-and-post:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,10 +19,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Generate blog post
         env:
@@ -33,16 +39,12 @@ jobs:
         run: |
           git config --global user.name "UrbanGray Bot"
           git config --global user.email "bot@urbangray.com"
-
-          # 【修正箇所1】パスを修正（client/src... ではなくルートの posts/ を指定）
-          git add posts/
-
-          # 変更があるかチェック
+          git add client/src/posts/
+          
           if git diff --staged --quiet; then
-            # 【修正箇所2】console.log はエラーになるので echo に変更
             echo "No changes to commit"
             exit 0
           fi
-
+          
           git commit -m "📝 Auto-generated blog post [skip ci]"
           git push
