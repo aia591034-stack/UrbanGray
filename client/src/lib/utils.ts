@@ -24,14 +24,19 @@ export function parseFrontmatter(text: string) {
     const colonIndex = line.indexOf(":");
     if (colonIndex !== -1) {
       const key = line.slice(0, colonIndex).trim();
-      let value = line.slice(colonIndex + 1).trim();
-      // Remove surrounding quotes if present
-      if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'" ) && value.endsWith("'"))) {
-        value = value.slice(1, -1);
-      }
-      data[key] = value;
-    }
-  });
+            let value = line.slice(colonIndex + 1).trim();
+            
+            // Remove surrounding quotes if present (handling both ' and ")
+            if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+              value = value.slice(1, -1);
+            }
+            
+            // Additional safety: if value still has quotes inside (e.g. image: "/img.jpg"), clean it
+            value = value.replace(/^["']|["']$/g, '');
+      
+            data[key] = value;
+          }
+        });
 
   return { data, content };
 }

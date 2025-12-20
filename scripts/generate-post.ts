@@ -101,10 +101,12 @@ async function generatePost() {
     // Force random image to ensure variety
     const randomImage = getRandomImage();
     
-    // Replace or insert image field
-    if (text.match(/image:\s*"?.*"? \n/)) {
-      text = text.replace(/image:\s*"?.*"? \n/, `image: "${randomImage}"\n`);
+    // Replace or insert image field in frontmatter
+    // Regex matches "image:" followed by anything until newline
+    if (text.match(/^image:.*\n/m)) {
+      text = text.replace(/^image:.*\n/m, `image: "${randomImage}"\n`);
     } else {
+      // Insert after description if image field is missing
       text = text.replace(/(description:.*\n)/, `$1image: "${randomImage}"\n`);
     }
 
