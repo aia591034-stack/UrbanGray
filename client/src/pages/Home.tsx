@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Truck, ShieldCheck, Clock, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Truck, ShieldCheck, Clock, ArrowUpRight, CheckCircle2, Instagram } from "lucide-react";
 import { Link } from "wouter";
 import Header from "@/components/Header";
 
@@ -398,10 +398,16 @@ export default function Home() {
 
           <div className="space-y-4">
             <h4 className="text-white uppercase tracking-widest text-xs">Follow Us</h4>
-            <nav className="flex flex-col gap-2">
-              <a href="#" className="hover:text-white transition-colors">Instagram</a>
-              <a href="#" className="hover:text-white transition-colors">Pinterest</a>
-              <a href="#" className="hover:text-white transition-colors">Twitter</a>
+            <nav className="flex flex-col gap-3">
+              <a 
+                href="https://www.instagram.com/urbangray.official/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-white transition-colors flex items-center gap-2"
+              >
+                <Instagram className="w-4 h-4" />
+                <span>Instagram</span>
+              </a>
             </nav>
           </div>
         </div>

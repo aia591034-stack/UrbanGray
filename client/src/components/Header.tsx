@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
@@ -32,7 +32,17 @@ export default function Header() {
               <a className={`hover:text-stone-900 transition-colors ${location.startsWith('/blog') ? 'text-stone-900 font-bold' : ''}`}>Journal</a>
             </Link>
             <a href="/#products" className="hover:text-stone-900 transition-colors">Collection</a>
-            <a href="/#features" className="hover:text-stone-900 transition-colors">Service</a>
+            
+            <a 
+              href="https://www.instagram.com/urbangray.official/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-stone-400 hover:text-stone-900 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+
             <a 
               href="https://urbangray.base.shop/" 
               target="_blank"
@@ -82,6 +92,15 @@ export default function Header() {
               </a>
               <a href="https://urbangray.base.shop/law" target="_blank" rel="noopener noreferrer" className="border-b border-stone-200 pb-4 text-sm text-stone-500">
                 特定商取引法に基づく表記
+              </a>
+              <a 
+                href="https://www.instagram.com/urbangray.official/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 text-stone-900 pt-4"
+              >
+                <Instagram className="w-6 h-6" />
+                <span>Instagram</span>
               </a>
             </nav>
 
