@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRoute, Link } from "wouter";
-import { parseFrontmatter } from "@/lib/utils";
+import { parseFrontmatter, formatDate } from "@/lib/utils";
 import ReactMarkdown from "react-markdown";
 import Header from "@/components/Header";
 import { ArrowLeft } from "lucide-react";
@@ -70,7 +70,7 @@ export default function BlogPost() {
                <ArrowLeft className="w-4 h-4" /> Back to Journal
              </a>
           </Link>
-          <span className="block text-stone-400 text-sm tracking-widest mb-4">{meta.date}</span>
+          <span className="block text-stone-400 text-sm tracking-widest mb-4">{formatDate(meta.date)}</span>
           <h1 className="text-3xl md:text-5xl font-serif leading-tight mb-12">
             {meta.title}
           </h1>

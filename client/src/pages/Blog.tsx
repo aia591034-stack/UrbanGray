@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { parseFrontmatter } from "@/lib/utils";
+import { parseFrontmatter, formatDate } from "@/lib/utils";
 import Header from "@/components/Header";
 import { motion } from "framer-motion";
 
@@ -79,7 +79,7 @@ export default function Blog() {
                       />
                     </div>
                     <div className="flex flex-col gap-3">
-                      <span className="text-xs text-stone-500 tracking-widest">{post.date}</span>
+                      <span className="text-xs text-stone-500 tracking-widest">{formatDate(post.date)}</span>
                       <h2 className="text-xl font-serif leading-snug group-hover:text-stone-600 transition-colors">
                         {post.title}
                       </h2>
