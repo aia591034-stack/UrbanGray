@@ -90,25 +90,30 @@ async function writeArticle(topic, imagePath) {
   console.log(`✍️ Writing article about: ${topic}`);
   
   const prompt = `
-    Role: Professional Interior Blogger for "Urban Gray".
+    Role: Professional Japanese Interior Blogger for "Urban Gray".
+    Language: Japanese (Must write in Japanese only).
     Target: 30s men, minimalist/modern preference.
     Topic: "${topic}"
+    
+    Task: Write a detailed blog post in Japanese about ${topic}.
     
     Format: Markdown with Frontmatter.
     
     Frontmatter:
-    - title: catchy title about ${topic}
+    - title: catchy title in Japanese (e.g. グレーで整える、大人の書斎作り)
     - date: ${new Date().toISOString().split('T')[0]}
-    - description: short summary
+    - description: short summary in Japanese (max 120 chars)
     - image: "${imagePath}"
     - author: Urban Gray Editorial
 
-    Content Rules:
-    - Use H2 (##) and H3 (###).
-    - **Bold** key terms.
+    Content Rules (Strictly in Japanese):
+    - Write 1500-2000 Japanese characters.
+    - Use H2 (##) and H3 (###) for structure.
+    - **Bold** key terms in Japanese.
     - Use bullet points.
-    - Short paragraphs (max 3-4 lines).
-    - Double newlines between paragraphs.
+    - KEEP PARAGRAPHS SHORT (Max 3-4 lines).
+    - Use double newlines between paragraphs for readability.
+    - Do NOT use English unless it's a technical term common in Japan.
     - No markdown code blocks in output.
   `;
 
