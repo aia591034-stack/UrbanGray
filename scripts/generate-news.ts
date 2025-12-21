@@ -43,7 +43,7 @@ async function generateTopic() {
     Output JSON format only:
     {
       "topic": "Japanese title of the topic",
-      "searchQuery": "English search keyword for Unsplash (e.g. minimalist desk setup)"
+      "searchQuery": "English search keyword for Unsplash. IMPORTANT: Add words like 'grey', 'minimalist', 'concrete', 'dark', or 'modern' to ensure the image fits the 'Urban Gray' brand aesthetic. (e.g. 'grey minimalist home office', 'concrete living room', 'dark modern bedroom')"
     }
   `;
   
